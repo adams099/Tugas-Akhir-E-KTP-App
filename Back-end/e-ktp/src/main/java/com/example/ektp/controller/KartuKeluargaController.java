@@ -47,4 +47,9 @@ public class KartuKeluargaController {
     public KartuKeluarga getKartuKeluargaById(@PathVariable int id) {
         return kartuKeluargaService.getKartuKeluargaById(id);
     }
+
+    @GetMapping("/getDatakk/{nomor_kk}")
+    public KartuKeluarga getKartuKeluargaByNokk(@PathVariable int nomor_kk) {
+        return kartuKeluargaService.getKartuKeluargaByNokk(nomor_kk);
+    }
 }

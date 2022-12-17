@@ -49,4 +49,9 @@ public class AnggotaKeluargaController {
         return anggotaKeluargaService.getAnggotaKeluargaById(id);
     }
 
+    @GetMapping("/get/{id_kk}")
+    public List<AnggotaKeluarga> getAllAnggotaKeluargaByIdKK(@PathVariable int id_kk) {
+        return anggotaKeluargaService.getAllAnggotaKeluargaByIdKK(id_kk);
+    }
+
 }

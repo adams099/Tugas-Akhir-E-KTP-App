@@ -15,7 +15,7 @@ public class AnggotaKeluarga {
     private int id;
 
     private String agama;
-    private String id_kk;
+    private int id_kk;
     private String jenis_kelamin;
     private String kepala_keluarga;
     private String nama;
@@ -43,11 +43,11 @@ public class AnggotaKeluarga {
         this.agama = agama;
     }
 
-    public String getId_kk() {
+    public int getId_kk() {
         return id_kk;
     }
 
-    public void setId_kk(String id_kk) {
+    public void setId_kk(int id_kk) {
         this.id_kk = id_kk;
     }
 

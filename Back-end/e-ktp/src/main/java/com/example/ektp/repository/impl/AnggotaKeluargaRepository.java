@@ -69,4 +69,11 @@ public class AnggotaKeluargaRepository implements IAnggotaKeluargaRepository {
         return jdbcTemplate.queryForObject(query, new BeanPropertyRowMapper<>(AnggotaKeluarga.class), id);
     }
 
+    @Override
+    public List<AnggotaKeluarga> getAllAnggotaKeluargaByIdKK(int id_kk) {
+        // TODO Auto-generated method stub
+        String query = "SELECT * FROM tb_anggota_keluarga WHERE id_kk = ?";
+        return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(AnggotaKeluarga.class), id_kk);
+    }
+
 }

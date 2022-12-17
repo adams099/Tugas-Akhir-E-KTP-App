@@ -14,4 +14,6 @@ public interface IKartuKeluargaService {
     public KartuKeluarga deleteKartuKeluarga(int id);
 
     public KartuKeluarga getKartuKeluargaById(int id);
+
+    public KartuKeluarga getKartuKeluargaByNokk(int nomor_kk);
 }

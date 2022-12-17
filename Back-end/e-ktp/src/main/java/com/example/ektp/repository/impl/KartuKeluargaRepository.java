@@ -68,4 +68,11 @@ public class KartuKeluargaRepository implements IKartuKeluargaRepository {
         return jdbcTemplate.queryForObject(query, new BeanPropertyRowMapper<>(KartuKeluarga.class), id);
     }
 
+    @Override
+    public KartuKeluarga getKartuKeluargaByNokk(int nomor_kk) {
+        // TODO Auto-generated method stub
+        String query = "SELECT * FROM tb_kartu_keluarga WHERE nomor_kk = ?";
+        return jdbcTemplate.queryForObject(query, new BeanPropertyRowMapper<>(KartuKeluarga.class), nomor_kk);
+    }
+
 }

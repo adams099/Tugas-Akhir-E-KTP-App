@@ -43,4 +43,10 @@ public class KartuKeluargaService implements IKartuKeluargaService {
         // TODO Auto-generated method stub
         return kartuKeluargaRepository.getKartuKeluargaById(id);
     }
+
+    @Override
+    public KartuKeluarga getKartuKeluargaByNokk(int nomor_kk) {
+        // TODO Auto-generated method stub
+        return kartuKeluargaRepository.getKartuKeluargaByNokk(nomor_kk);
+    }
 }
