@@ -156,6 +156,7 @@ export default {
                     .then((response) => {
                         console.log(response.data);
                         this.success = true;
+                        this.textAlert = 'Diupdate';
                     })
                     .catch((e) => {
                         console.log(e);

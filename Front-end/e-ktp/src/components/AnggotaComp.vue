@@ -67,19 +67,19 @@
                                 <b-form-input id="nama" v-model="anggotaData.nama" required></b-form-input>
                             </b-form-group>
 
+                            <!-- TEMPAT LAHIR -->
+                            <b-form-group class="mt-2" label="Tempat Lahir" label-for="Tempat Lahir"
+                                invalid-feedback="Jenis Kelamin is required">
+                                <b-form-input id="tempat_lahir" v-model="anggotaData.tempat_lahir"
+                                    required></b-form-input>
+                            </b-form-group>
+
                             <!-- JENIS KELAMIN -->
                             <b-form-group id="input-group-3" label="Jenis Kelamin" label-for="input-3" class="mt-2">
                                 <b-form-select class="gender" style="width: 230px;" v-model="anggotaData.jenis_kelamin">
                                     <option>Laki-Laki</option>
                                     <option>Perempuan</option>
                                 </b-form-select>
-                            </b-form-group>
-
-                            <!-- TEMPAT LAHIR -->
-                            <b-form-group class="mt-2" label="Tempat Lahir" label-for="Tempat Lahir"
-                                invalid-feedback="Jenis Kelamin is required">
-                                <b-form-input id="tempat_lahir" v-model="anggotaData.tempat_lahir"
-                                    required></b-form-input>
                             </b-form-group>
                         </form>
                     </div>
@@ -137,7 +137,7 @@ export default {
     },
     data() {
         return {
-            anggotaKeluargaData: null,
+            anggotaKeluargaData: [],
             success: false,
             textAlertt: '',
             anggotaData: {

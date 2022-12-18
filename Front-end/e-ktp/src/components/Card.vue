@@ -21,8 +21,8 @@ export default {
 
     data() {
         return {
-            kartuKeluargaData: null,
-            anggotaKeluargaData: null,
+            kartuKeluargaData: [],
+            anggotaKeluargaData: [],
         };
     },
 

@@ -10,15 +10,15 @@ class AnggotaKeluarga {
         return http.get("/anggotakeluarga/getAll");
     }
 
-    updateKartuKeluarga(id, data) {
+    updateAnggotaKeluarga(id, data) {
         return http.put(`/anggotakeluarga/update/${id}`, data);
     }
 
-    deleteKartuKeluarga(id) {
+    deleteAnggotaKeluarga(id) {
         return http.delete(`/anggotakeluarga/delete/${id}`);
     }
 
-    getKartuKelurgaById(id) {
+    getAnggotaKeluargaById(id) {
         return http.get(`/anggotakeluarga/getData/${id}`)
     }
 

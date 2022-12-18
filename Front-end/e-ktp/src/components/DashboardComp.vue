@@ -41,15 +41,15 @@
     </table>
     <!-- TABLE END -->
     <div v-show="success">
-      <Success :propsAlert="te"></Success>
+      <Success :propsAlert="textAlert"></Success>
     </div>
   </div>
 </template>
 
 <script>
 import kartuKeluargaServices from "@/services/kkServices";
-import anggotaKeluargaServices from "@/services/anggotaKeluargaServices";
 import Success from "./Success.vue";
+
 export default {
   name: "DashboardS",
   data() {
@@ -76,18 +76,7 @@ export default {
           console.log(e);
         });
     },
-    // METHOD GET ALL ANGGOTA
-    getAnggota() {
-      anggotaKeluargaServices
-        .getAll()
-        .then((response) => {
-          this.anggotaKeluargaData = response.data;
-          console.log(this.anggotaKeluargaData);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
+
     // METHOD DELETE KK
     deleteKK(id) {
       if (confirm(`Yakin Ingin menghapus data ini ?`)) {
@@ -108,7 +97,6 @@ export default {
   },
   mounted() {
     this.getKK();
-    this.getAnggota();
   },
 };
 </script>
