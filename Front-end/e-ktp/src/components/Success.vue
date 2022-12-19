@@ -21,9 +21,10 @@
                 <router-link to="/home" v-else-if="propsAlert === 'Dihapus'">
                     <button class="back btn btn-primary mt-3" @click="RefreshFunc">Refles</button>
                 </router-link>
-                <!-- <router-link to="/home" v-elss>
-                    <button class="back btn btn-primary mt-3" @click="RefreshFunc">Refles</button>
-                </router-link> -->
+                <router-link :to="{ path: '/detailKK/' + this.$route.params.id + '/listAnggota/detailAnggota' }"
+                    v-else-if="propsAlert === 'Diupdate '">
+                    <button class="back btn btn-primary mt-3" @click="RefreshFunc">Back</button>
+                </router-link>
             </div>
         </div>
     </div>

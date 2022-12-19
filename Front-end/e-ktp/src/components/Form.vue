@@ -1,100 +1,101 @@
 <template>
     <div class="form-add">
-        <!-- Button -->
-        <router-link to="/home" v-show="!success">
-            <button class="btn btn-success mt-3 shadow">Back</button>
-        </router-link>
-
-        <button class="btn btn-warning mt-3 mx-2 text-white" type="submit"
-            v-show="Butns == `/detailKK/${kartuKeluargaData.nomor_kk}`" @click.prevent="updateFunc()">
-            Edit
-        </button>
-
-        <router-link :to="`/detailKK/${kartuKeluargaData.nomor_kk}/listAnggota`">
-            <button class="btn btn-primary mt-3" v-show="Butns == `/detailKK/${kartuKeluargaData.nomor_kk}`">
-                {{ btnDetail }}
-            </button>
-        </router-link>
-        <!-- END BUTTON -->
-
-        <!-- START FORM -->
-        <form action="" class="mt-3 p-4 shadow" @submit.prevent="inputKartuKeluarga" v-show="!success">
-            <div class="d-flex">
-                <div class="col-md-6 p-3">
-                    <!-- Input KK -->
-                    <div class="col-auto d-flex justify-content-between my-3">
-                        <label for="nomorkk" class="col-form-label">Nomor Kartu Keluarga</label>
-                        <input :disabled="kkNo" v-model="kartuKeluargaData.nomor_kk" placeholder="Nomor Kartu Keluarga"
-                            style="width: 50%" type="number" id="nomorkk" class="form-control" required />
-                    </div>
-
-                    <!-- Alamat -->
-                    <div class="col-auto d-flex justify-content-between my-3">
-                        <label for="textarea" class="col-form-label">Alamat</label>
-                        <textarea :disabled="isReadOnly" v-model="kartuKeluargaData.alamat" placeholder="Alamat"
-                            style="width: 50%" type="textarea" id="textarea" class="form-control" required />
-                    </div>
-
-                    <!-- RT -->
-                    <div class="col-auto d-flex justify-content-between my-3">
-                        <label for="rt" class="col-form-label">RT</label>
-                        <input :disabled="isReadOnly" v-model="kartuKeluargaData.rt" placeholder="RT" style="width: 50%"
-                            type="number" id="rt" class="form-control" required />
-                    </div>
-
-                    <!-- RW -->
-                    <div class="col-auto d-flex justify-content-between my-3">
-                        <label for="rW" class="col-form-label">RW</label>
-                        <input :disabled="isReadOnly" v-model="kartuKeluargaData.rw" placeholder="RW" style="width: 50%"
-                            type="number" id="rW" class="form-control" required />
-                    </div>
-                </div>
-                <div class="col-md-6 p-3">
-                    <!-- Desa / Kelurahan -->
-                    <div class="col-auto d-flex justify-content-between">
-                        <label for="desa_kelurahan" class="col-form-label">Desa / Kelurahan</label>
-                        <input :disabled="isReadOnly" v-model="kartuKeluargaData.desa_kelurahan"
-                            placeholder="Desa / Kelurahan" style="width: 50%" type="text" id="desa_kelurahan"
-                            class="form-control" required />
-                    </div>
-
-                    <!-- Kecamatan -->
-                    <div class="col-auto d-flex justify-content-between my-3">
-                        <label for="kecamatan" class="col-form-label">Kecamatan</label>
-                        <input :disabled="isReadOnly" v-model="kartuKeluargaData.kecamatan" placeholder="Kecamatan"
-                            style="width: 50%" type="text" id="kecamatan" class="form-control" required />
-                    </div>
-
-                    <!-- Kabupaten / Kota -->
-                    <div class="col-auto d-flex justify-content-between my-3">
-                        <label for="kabupaten" class="col-form-label">Kabupaten / Kota</label>
-                        <input :disabled="isReadOnly" v-model="kartuKeluargaData.kabupaten_kota"
-                            placeholder="Kabupaten / Kota" style="width: 50%" type="text" id="kabupaten"
-                            class="form-control" required />
-                    </div>
-                    <!-- Provinsi -->
-                    <div class="col-auto d-flex justify-content-between my-3">
-                        <label for="provinsi" class="col-form-label">Provinsi</label>
-                        <input :disabled="isReadOnly" v-model="kartuKeluargaData.provinsi" placeholder="Provinsi"
-                            style="width: 50%" type="text" id="provinsi" class="form-control" required />
-                    </div>
-                    <!-- Kode Pos -->
-                    <div class="col-auto d-flex justify-content-between my-3">
-                        <label for="kode_pos" class="col-form-label">Kode Pos</label>
-                        <input :disabled="isReadOnly" v-model="kartuKeluargaData.kode_pos" placeholder="Kode Pos"
-                            style="width: 50%" type="number" id="kode_pos" class="form-control" required />
-                    </div>
-                </div>
-            </div>
+        <div v-show="!success">
             <!-- Button -->
-            <button class="button-submit" type="submit" v-show="Butns == '/addkk'">
-                {{ buttonValue }}
+            <router-link to="/home" v-show="!success">
+                <button class="btn btn-success mt-3 shadow">Back</button>
+            </router-link>
+            <button class="btn btn-warning mt-3 mx-2 text-white" type="submit"
+                v-show="Butns == `/detailKK/${kartuKeluargaData.nomor_kk}`" @click.prevent="updateFunc()">
+                Edit
             </button>
-            <button class="button-submit" type="submit" v-show="Butns == `/detailKK/${kartuKeluargaData.nomor_kk}`">
-                {{ buttonValue }}
-            </button>
-        </form>
-        <!-- END FORM -->
+            <router-link :to="`/detailKK/${kartuKeluargaData.nomor_kk}/listAnggota`">
+                <button class="btn btn-primary mt-3" v-show="Butns == `/detailKK/${kartuKeluargaData.nomor_kk}`">
+                    {{ btnDetail }}
+                </button>
+            </router-link>
+            <!-- END BUTTON -->
+
+            <!-- START FORM -->
+            <form action="" class="mt-3 p-4 shadow" @submit.prevent="inputKartuKeluarga">
+                <div class="d-flex">
+                    <div class="col-md-6 p-3">
+                        <!-- Input KK -->
+                        <div class="col-auto d-flex justify-content-between my-3">
+                            <label for="nomorkk" class="col-form-label">Nomor Kartu Keluarga</label>
+                            <input :disabled="kkNo" v-model="kartuKeluargaData.nomor_kk"
+                                placeholder="Nomor Kartu Keluarga" style="width: 50%" type="number" id="nomorkk"
+                                class="form-control" required />
+                        </div>
+
+                        <!-- Alamat -->
+                        <div class="col-auto d-flex justify-content-between my-3">
+                            <label for="textarea" class="col-form-label">Alamat</label>
+                            <textarea :disabled="isReadOnly" v-model="kartuKeluargaData.alamat" placeholder="Alamat"
+                                style="width: 50%" type="textarea" id="textarea" class="form-control" required />
+                        </div>
+
+                        <!-- RT -->
+                        <div class="col-auto d-flex justify-content-between my-3">
+                            <label for="rt" class="col-form-label">RT</label>
+                            <input :disabled="isReadOnly" v-model="kartuKeluargaData.rt" placeholder="RT"
+                                style="width: 50%" type="number" id="rt" class="form-control" required />
+                        </div>
+
+                        <!-- RW -->
+                        <div class="col-auto d-flex justify-content-between my-3">
+                            <label for="rW" class="col-form-label">RW</label>
+                            <input :disabled="isReadOnly" v-model="kartuKeluargaData.rw" placeholder="RW"
+                                style="width: 50%" type="number" id="rW" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="col-md-6 p-3">
+                        <!-- Desa / Kelurahan -->
+                        <div class="col-auto d-flex justify-content-between">
+                            <label for="desa_kelurahan" class="col-form-label">Desa / Kelurahan</label>
+                            <input :disabled="isReadOnly" v-model="kartuKeluargaData.desa_kelurahan"
+                                placeholder="Desa / Kelurahan" style="width: 50%" type="text" id="desa_kelurahan"
+                                class="form-control" required />
+                        </div>
+
+                        <!-- Kecamatan -->
+                        <div class="col-auto d-flex justify-content-between my-3">
+                            <label for="kecamatan" class="col-form-label">Kecamatan</label>
+                            <input :disabled="isReadOnly" v-model="kartuKeluargaData.kecamatan" placeholder="Kecamatan"
+                                style="width: 50%" type="text" id="kecamatan" class="form-control" required />
+                        </div>
+
+                        <!-- Kabupaten / Kota -->
+                        <div class="col-auto d-flex justify-content-between my-3">
+                            <label for="kabupaten" class="col-form-label">Kabupaten / Kota</label>
+                            <input :disabled="isReadOnly" v-model="kartuKeluargaData.kabupaten_kota"
+                                placeholder="Kabupaten / Kota" style="width: 50%" type="text" id="kabupaten"
+                                class="form-control" required />
+                        </div>
+                        <!-- Provinsi -->
+                        <div class="col-auto d-flex justify-content-between my-3">
+                            <label for="provinsi" class="col-form-label">Provinsi</label>
+                            <input :disabled="isReadOnly" v-model="kartuKeluargaData.provinsi" placeholder="Provinsi"
+                                style="width: 50%" type="text" id="provinsi" class="form-control" required />
+                        </div>
+                        <!-- Kode Pos -->
+                        <div class="col-auto d-flex justify-content-between my-3">
+                            <label for="kode_pos" class="col-form-label">Kode Pos</label>
+                            <input :disabled="isReadOnly" v-model="kartuKeluargaData.kode_pos" placeholder="Kode Pos"
+                                style="width: 50%" type="number" id="kode_pos" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <!-- Button -->
+                <button class="button-submit" type="submit" v-show="Butns == '/addkk'">
+                    {{ buttonValue }}
+                </button>
+                <button class="button-submit" type="submit" v-show="updateBtn">
+                    {{ buttonValue }}
+                </button>
+            </form>
+            <!-- END FORM -->
+        </div>
 
         <!-- Alert Sucess Submit -->
         <div class="" v-show="success">
@@ -132,6 +133,7 @@ export default {
             btnDetail: 'Tambah',
             showBtn: false,
             textAlert: '',
+            updateBtn: false,
         };
     },
     methods: {
@@ -167,8 +169,10 @@ export default {
             let update = this.isReadOnly;
             if (update == true) {
                 this.isReadOnly = false;
+                this.updateBtn = true;
             } else {
                 this.isReadOnly = true;
+                this.updateBtn = false;
             }
         },
         getKartuKelurgaByNokk() {

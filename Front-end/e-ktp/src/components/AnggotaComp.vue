@@ -49,7 +49,7 @@
             <!-- TABLE END -->
 
             <!-- FORM TAMBAH ANGGOTA -->
-            <b-modal id="modal-prevent-closing" ref="modal" title="Silahkan Tambahkan Anggota" ok-title="Update"
+            <b-modal id="modal-prevent-closing" ref="modal" title="Silahkan Tambahkan Anggota" ok-title="Submit"
                 cancel-title="Tutup" @ok="handleOk" @submit="getIdKK">
                 <div class="row">
                     <!-- INPUT KIRI -->
