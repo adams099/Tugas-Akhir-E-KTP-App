@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     IUserService userService;
 
-    @PostMapping("/insert")
+    @PostMapping("/register")
     public User insertUser(@RequestBody User user) {
         return userService.insertUser(user);
     }
@@ -43,4 +43,8 @@ public class UserController {
         return userService.getUserByEmail(email);
     }
 
+    @PostMapping("/login")
+    public User getUserByEmailPass(@RequestBody User user) {
+        return userService.getUserByEmailPass(user);
+    }
 }

@@ -38,4 +38,10 @@ public class UserService implements IUserService {
         // TODO Auto-generated method stub
         return userRepository.updateUser(id, user);
     }
+
+    @Override
+    public User getUserByEmailPass(User user) {
+        // TODO Auto-generated method stub
+        return userRepository.getUserByEmailPass(user);
+    }
 }

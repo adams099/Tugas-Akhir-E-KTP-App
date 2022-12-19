@@ -12,4 +12,6 @@ public interface IUserService {
     public User getUserByEmail(String email);
 
     public User updateUser(int id, User user);
+
+    public User getUserByEmailPass(User user);
 }

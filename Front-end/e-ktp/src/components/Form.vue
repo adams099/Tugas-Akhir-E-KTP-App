@@ -87,6 +87,7 @@
                     </div>
                 </div>
                 <!-- Button -->
+                <p v-if="validasiKK" class="small text-danger">Nomor KK Sudah Terdaftar</p>
                 <button class="button-submit" type="submit" v-show="Butns == '/addkk'">
                     {{ buttonValue }}
                 </button>
@@ -134,6 +135,7 @@ export default {
             showBtn: false,
             textAlert: '',
             updateBtn: false,
+            validasiKK: false,
         };
     },
     methods: {
@@ -150,7 +152,12 @@ export default {
                         this.textAlert = 'Disubmit';
                     })
                     .catch((e) => {
-                        console.log(e);
+                        let errorEntry = e.response.data.trace.includes("Duplicate entry");
+                        if (errorEntry) {
+                            this.validasiKK = true;
+                        } else {
+                            this.validasiKK = false;
+                        }
                     });
             } else {
                 kartuKeluargaService

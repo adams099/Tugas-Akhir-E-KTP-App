@@ -61,7 +61,7 @@
         </div>
 
         <div class="mt-auto mb-3">
-          <router-link to="/login" class="nav-link">
+          <router-link to="/" class="nav-link">
             <h4 class="text-white d-flex">
               <span id="logout">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

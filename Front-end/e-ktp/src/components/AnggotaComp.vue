@@ -50,7 +50,7 @@
 
             <!-- FORM TAMBAH ANGGOTA -->
             <b-modal id="modal-prevent-closing" ref="modal" title="Silahkan Tambahkan Anggota" ok-title="Submit"
-                cancel-title="Tutup" @ok="handleOk" @submit="getIdKK">
+                cancel-title="Tutup" @ok="handleOk" @submit="getIdKK" required>
                 <div class="row">
                     <!-- INPUT KIRI -->
                     <div class="col input-kiri">
@@ -117,6 +117,7 @@
                         </form>
                     </div>
                 </div>
+                <p v-if="validasiKK" class="small text-danger">NIK Sudah Terdaftar</p>
             </b-modal>
             <!-- FORM END -->
         </div>
@@ -139,6 +140,8 @@ export default {
             anggotaKeluargaData: [],
             success: false,
             textAlert: '',
+            validasiKK: false,
+
             anggotaData: {
                 nik: null,
                 agama: null,
@@ -175,7 +178,12 @@ export default {
                         this.success = true;
                     })
                     .catch((e) => {
-                        console.log(e);
+                        let errorEntry = e.response.data.trace.includes("Duplicate entry");
+                        if (errorEntry) {
+                            this.validasiKK = true;
+                        } else {
+                            this.validasiKK = false;
+                        }
                     });
             }
         },

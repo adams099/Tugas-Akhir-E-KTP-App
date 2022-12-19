@@ -49,4 +49,13 @@ public class UserRepository implements IUserRepository {
 
         return user;
     }
+
+    @Override
+    public User getUserByEmailPass(User user) {
+        // TODO Auto-generated method stub
+        String query = "SELECT * FROM tb_user WHERE email = ? AND password = ?";
+        var result = jdbcTemplate.queryForObject(query, new BeanPropertyRowMapper<>(User.class),
+                new Object[] { user.getEmail(), user.getPassword() });
+        return result;
+    }
 }
