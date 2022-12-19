@@ -12,7 +12,8 @@ export default {
 
     data() {
         return {
-            breadLink: this.$route.path
+            breadLink: this.$route.path,
+            nom_kk: this.$route.params.no_kk,
         }
     }
 }

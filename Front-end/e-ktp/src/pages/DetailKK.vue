@@ -6,6 +6,9 @@
         <div class="col col-md-9">
             <h3 class="mt-4 title shadow">Detail Kartu Keluarga</h3>
             <Form></Form>
+        </div>
+        <div class="col col-md-3"></div>
+        <div class="col col-md-9">
             <Footer></Footer>
         </div>
     </div>

@@ -4,7 +4,8 @@
             <Sidebar></Sidebar>
         </div>
         <div class="col col-md-9 ml-5">
-            <DetailAnggota></DetailAnggota>
+            <h3 class="mt-4 title shadow">Detail Anggota Keluarga</h3>
+            <DetailAnggota ml-4></DetailAnggota>
         </div>
         <div class="col col-md-3">
         </div>
@@ -29,5 +30,11 @@ export default {
 </script>
 
 <style scoped>
-
+.title {
+    padding: 10px 10px;
+    border-radius: 15px;
+    background-color: #c8b6ff;
+    margin-left: 20px;
+    color: aliceblue;
+}
 </style>

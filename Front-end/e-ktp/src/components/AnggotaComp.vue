@@ -1,8 +1,7 @@
 <template>
     <div>
         <div class="form-add" v-show="!success">
-            <h3 class="mt-4 title shadow">Daftar Anggota Keluarga</h3>
-            <router-link to="/home">
+            <router-link :to="{ path: '/detailKK/' + this.$route.params.no_kk }">
                 <button class="btn btn-successs mt-3 shadow">Back</button>
             </router-link>
 
@@ -122,7 +121,7 @@
             <!-- FORM END -->
         </div>
         <div v-show="success">
-            <Success :propsAlertt="textAlertt"></Success>
+            <Success :propsAlert="textAlert"></Success>
         </div>
     </div>
 </template>
@@ -139,7 +138,7 @@ export default {
         return {
             anggotaKeluargaData: [],
             success: false,
-            textAlertt: '',
+            textAlert: '',
             anggotaData: {
                 nik: null,
                 agama: null,
@@ -172,7 +171,7 @@ export default {
                 anggotaKeluargaServices.create(data)
                     .then((response) => {
                         console.log(response.data);
-                        this.textAlertt = 'Disubmit'
+                        this.textAlert = 'Disubmit '
                         this.success = true;
                     })
                     .catch((e) => {

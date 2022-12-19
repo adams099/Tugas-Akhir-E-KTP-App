@@ -1,9 +1,9 @@
 <template>
     <div>
         <!-- Button -->
-        <!-- <router-link :to="`/detailKK/${anggotaData.id}/listAnggota`">
+        <router-link :to="{ path: '/detailKK/' + anggotaData.id_kk + '/listAnggota' }">
             <button class="btn btn-success mt-3 shadow">Back</button>
-        </router-link> -->
+        </router-link>
 
         <button class="btn btn-warning mt-3 mx-2 text-white" type="submit" @click.prevent="updateFunc()">
             Edit

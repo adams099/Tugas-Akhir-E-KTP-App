@@ -14,7 +14,7 @@
                 </router-link>
 
                 <router-link :to="{ path: '/detailKK/' + this.$route.params.no_kk + '/listAnggota/' }"
-                    v-else-if="propsAlertt === 'Disubmit'">
+                    v-else-if="propsAlert === 'Disubmit '">
                     <button class="back btn btn-primary mt-3" @click="RefreshFunc">Back</button>
                 </router-link>
 
