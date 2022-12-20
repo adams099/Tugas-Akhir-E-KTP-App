@@ -1,39 +1,45 @@
 <template>
-    <div class="container">
-        <div class="loginPage">
-            <img src="@/assets/e-ktp.png" alt="" />
-            <div class="main">
-                <input type="checkbox" id="chk" aria-hidden="true" v-model="checkbox" />
+    <div class="bg">
+        <div class="container">
+            <div class="loginPage">
+                <img src="@/assets/e-ktp.png" alt="" />
+                <div class="main">
+                    <input type="checkbox" id="chk" aria-hidden="true" v-model="checkbox" />
 
-                <div class="signup">
-                    <form @submit.prevent="register">
-                        <label for="chk" aria-hidden="true">Sign up</label>
-                        <input type="text" name="txt" placeholder="Nama Lengkap" v-model="userRegister.nama"
-                            required="" />
-                        <input type="email" name="email" placeholder="Email" v-model="userRegister.email" required="" />
-                        <input type="password" name="pswd" placeholder="Password" v-model="userRegister.password"
-                            required="" />
-                        <input type="password" name="pswd" placeholder="RePassword" required="" v-model="password2" />
-                        <p v-if="registerValid">Password Tidak Sama</p>
-                        <p v-if="emailValid">Email Sudah digunakan</p>
-                        <button>Sign up</button>
-                    </form>
-                </div>
+                    <div class="signup">
+                        <form @submit.prevent="register">
+                            <label for="chk" aria-hidden="true">Silahkan Daftar</label>
+                            <input type="text" name="txt" placeholder="Nama Lengkap" v-model="userRegister.nama"
+                                required="" />
+                            <input type="email" name="email" placeholder="Email" v-model="userRegister.email"
+                                required="" />
+                            <input type="password" name="pswd" placeholder="Password" v-model="userRegister.password"
+                                required="" />
+                            <input type="password" name="pswd" placeholder="RePassword" required=""
+                                v-model="password2" />
+                            <p v-if="registerValid">Password Tidak Sama</p>
+                            <p v-if="emailValid">Email Sudah digunakan</p>
+                            <button>Daftar</button>
+                        </form>
+                    </div>
 
-                <div class="login">
-                    <form @submit.prevent="login">
-                        <label for="chk" aria-hidden="true">Login</label>
-                        <input type="email" name="email" placeholder="Email" v-model="userLogin.email" required="" />
-                        <input type="password" name="pswd" placeholder="Password" v-model="userLogin.password"
-                            required="" />
-                        <p v-if="loginValid">Username atau Password Salah</p>
-                        <p v-if="registerBerhasil">Berhasil mendaftar! Silahkan Login</p>
-                        <button>Login</button>
-                    </form>
+                    <div class="login">
+                        <form @submit.prevent="login">
+                            <label for="chk" aria-hidden="true">Masuk</label>
+                            <input type="email" name="email" placeholder="Email" v-model="userLogin.email"
+                                required="" />
+                            <input type="password" name="pswd" placeholder="Password" v-model="userLogin.password"
+                                required="" />
+                            <p v-if="loginValid">Username atau Password Salah</p>
+                            <p v-if="registerBerhasil">Berhasil mendaftar! Silahkan Login</p>
+                            <button>Login</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -105,16 +111,24 @@ export default {
 
 <style lang="scss" scoped>
 .loginPage {
-    margin-top: 50px;
     border-radius: 10px;
-    // margin: 0;
+    margin: 0;
+    padding: 0;
     padding: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
     // min-height: 100vh;
     font-family: "Jost", sans-serif;
-    background: linear-gradient(to bottom, #dba39a, #f0dbdb, #dba39a);
+}
+
+.bg {
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
 }
 
 .main {
@@ -122,8 +136,8 @@ export default {
     height: 500px;
     background: red;
     overflow: hidden;
-    background: #dba39a no-repeat center/ cover;
-    border-radius: 10px;
+    background: #9053c7 no-repeat center/ cover;
+    border-radius: 25px;
     box-shadow: 5px 20px 50px #000;
 }
 
@@ -150,7 +164,7 @@ label {
 
 input {
     width: 60%;
-    height: 20px;
+    height: 35px;
     background: #e0dede;
     justify-content: center;
     display: flex;
