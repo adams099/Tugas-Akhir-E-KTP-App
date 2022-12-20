@@ -1,9 +1,11 @@
 <template>
     <div class="bg">
         <div class="container">
-            <div class="loginPage">
-                <img src="@/assets/e-ktp.png" alt="" />
-                <div class="main">
+            <div class="loginPage row d-flex">
+                <div class="col-0 col-md-5 col-sm-5">
+                    <img src="@/assets/e-ktp.png" alt="" />
+                </div>
+                <div class="main col-12 col-md-5 col-sm-5">
                     <input type="checkbox" id="chk" aria-hidden="true" v-model="checkbox" />
 
                     <div class="signup">
@@ -17,8 +19,8 @@
                                 required="" />
                             <input type="password" name="pswd" placeholder="RePassword" required=""
                                 v-model="password2" />
-                            <p v-if="registerValid">Password Tidak Sama</p>
-                            <p v-if="emailValid">Email Sudah digunakan</p>
+                            <p v-if="registerValid" class="text-center text-warning">Password Tidak Sama</p>
+                            <p v-if="emailValid" class="text-center text-warning">Email Sudah digunakan</p>
                             <button>Daftar</button>
                         </form>
                     </div>
@@ -30,8 +32,8 @@
                                 required="" />
                             <input type="password" name="pswd" placeholder="Password" v-model="userLogin.password"
                                 required="" />
-                            <p v-if="loginValid">Username atau Password Salah</p>
-                            <p v-if="registerBerhasil">Berhasil mendaftar! Silahkan Login</p>
+                            <p v-if="loginValid" class="text-center text-warning">Username atau Password Salah</p>
+                            <p v-if="registerBerhasil" class="text-center text-success">Berhasil mendaftar! Silahkan Login</p>
                             <button>Login</button>
                         </form>
                     </div>
@@ -114,11 +116,10 @@ export default {
     border-radius: 10px;
     margin: 0;
     padding: 0;
-    padding: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
-    // min-height: 100vh;
+    min-height: 100vh;
     font-family: "Jost", sans-serif;
 }
 
@@ -156,7 +157,7 @@ label {
     font-size: 2.3em;
     justify-content: center;
     display: flex;
-    margin: 60px;
+    margin-top: 50px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.5s ease-in-out;
@@ -168,7 +169,7 @@ input {
     background: #e0dede;
     justify-content: center;
     display: flex;
-    margin: 20px auto;
+    margin: 15px auto;
     padding: 10px;
     border: none;
     outline: none;
@@ -220,5 +221,10 @@ button:hover {
 
 #chk:checked~.signup label {
     transform: scale(0.6);
+}
+
+p {
+    margin: 0;
+    padding: 0;
 }
 </style>

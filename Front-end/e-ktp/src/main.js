@@ -26,6 +26,7 @@ const router = new VueRouter({
   mode: 'history',
 })
 
+router.replace({ path: '/' })
 
 new Vue({
   render: h => h(App),

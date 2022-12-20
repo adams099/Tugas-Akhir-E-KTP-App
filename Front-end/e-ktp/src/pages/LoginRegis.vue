@@ -1,22 +1,17 @@
 <template>
-    <div>
-        <LoginRegis></LoginRegis>
-        <Footer></Footer>
-    </div>
+  <LoginRegis></LoginRegis>
 </template>
 
 <script>
 import LoginRegis from "@/components/LoginRegisComp.vue";
-import Footer from "@/components/FooterComp.vue";
+
 export default {
-    name: "registerPage",
-    components: {
-        LoginRegis,
-        Footer,
-    },
+  name: "registerPage",
+  components: {
+    LoginRegis,
+  },
 };
 </script>
 
 <style>
-
 </style>

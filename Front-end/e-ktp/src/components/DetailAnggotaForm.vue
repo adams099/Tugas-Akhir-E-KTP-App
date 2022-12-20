@@ -183,13 +183,8 @@ form {
     padding: 7px 7px 7px 7px;
 }
 
-.jenis_kelamin {
-    width: 207px;
-    height: 38px;
-}
-
-.kepala_keluarga {
-    width: 207px;
+.jenis_kelamin, .kepala_keluarga {
+    width: 253px;
     height: 38px;
 }
 
