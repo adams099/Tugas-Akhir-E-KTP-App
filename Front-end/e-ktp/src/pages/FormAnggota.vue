@@ -4,7 +4,7 @@
             <Sidebar></Sidebar>
         </div>
         <div class="col col-md-9 ml-5">
-            <h3 class="mt-4 title shadow">Daftar Seluruh Anggota Keluarga</h3>
+            <Breadcump></Breadcump>
             <ListAnggotaComVue></ListAnggotaComVue>
         </div>
         <div class="col col-md-3"></div>
@@ -18,6 +18,7 @@
 import Sidebar from "../components/SidebarComp.vue";
 import Footer from "../components/FooterComp.vue";
 import ListAnggotaComVue from "@/components/ListAnggotaCom.vue";
+import Breadcump from "@/components/Breadcump.vue";
 
 export default {
     name: "FormS",
@@ -25,6 +26,7 @@ export default {
         Sidebar,
         Footer,
         ListAnggotaComVue,
+        Breadcump
     }
 };
 </script>

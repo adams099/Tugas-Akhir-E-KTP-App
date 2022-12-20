@@ -66,22 +66,22 @@ export default {
     flex-direction: row;
     margin-top: 25px;
     justify-content: flex-start;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .jkk {
-    background-color: #b9faf8;
+    background: linear-gradient(-135deg, #FF8066, #D65DB1);
     color: rgb(59, 59, 59);
     margin-right: 20px;
     width: 270px;
     height: 150px;
     padding: 20px 20px;
     border-radius: 20px;
-    color: rgb(62, 62, 62);
+    color: aliceblue;
 }
 
 .jsw {
-    background-color: rgb(255, 204, 95);
+    background: linear-gradient(-135deg, #FF9671, #D65DB1);
     color: aliceblue;
     width: 270px;
     height: 150px;

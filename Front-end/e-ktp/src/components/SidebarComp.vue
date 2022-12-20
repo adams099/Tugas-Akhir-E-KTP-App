@@ -103,7 +103,7 @@ span {
 .sidebar {
   width: 280px;
   height: 95%;
-  background-color: #c8b6ff;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
   box-shadow: 0 4px 15px 0 rgba(66, 67, 67, 0.436);
   border-radius: 20px;
   margin-top: 25px;
@@ -153,7 +153,7 @@ svg {
 }
 
 .home:hover {
-  background-color: #bbd0ff;
+  background-color: #5F9DF7;
   cursor: pointer;
 }
 
@@ -163,7 +163,7 @@ svg {
 }
 
 .tambah-kk:hover {
-  background-color: #bbd0ff;
+  background-color: #5F9DF7;
   cursor: pointer;
 }
 
@@ -173,25 +173,31 @@ svg {
 }
 
 .daftar-anggota:hover {
-  background-color: #bbd0ff;
+  background-color: #5F9DF7;
   cursor: pointer;
 }
 
-.router-link-exact-active,
+.router-link-exact-active {
+  /* background-color: #5F9DF7; */
+  border-radius: 10px 0px 0px 10px;
+  cursor: pointer;
+}
+
 .router-link-active {
-  background-color: #bbd0ff;
+  /* background-color: #5F9DF7; */
   border-radius: 10px 0px 0px 10px;
   cursor: pointer;
 }
 
 h4 .text-white mt-auto mb-3:hover {
-  background-color: #bbd0ff;
+  background-color: #5F9DF7;
   padding: 5px 5px 5px 5px;
   border-radius: 10px 0px 0px 10px;
 }
 
+
 div .mt-auto:hover {
-  background-color: #bbd0ff;
+  background-color: #5F9DF7;
   cursor: pointer;
 }
 

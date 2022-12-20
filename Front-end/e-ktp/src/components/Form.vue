@@ -234,4 +234,9 @@ form {
 .form-add {
     margin-left: 20px;
 }
+
+.btn-primary {
+    background-color: blueviolet;
+    border: none;
+}
 </style>

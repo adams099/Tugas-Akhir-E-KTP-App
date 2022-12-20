@@ -4,20 +4,24 @@
         <thead>
             <tr>
                 <th scope="col">No</th>
+                <th scope="col">Nomor KK</th>
                 <th scope="col">NIK</th>
                 <th scope="col">Nama</th>
+                <th scope="col">Agama</th>
+                <th scope="col">Pendidikan</th>
                 <th scope="col">Jenis Kelamin</th>
-                <th scope="col">Kepala Keluarga</th>
-                <th scope="col">Action</th>
+                <th scope="col" class="text-center">Action</th>
             </tr>
         </thead>
         <tbody v-if="anggotaData.length > 0">
             <tr v-for="(item, index) in anggotaData" :key="index">
                 <th scope="row">{{ index + 1 }}</th>
                 <td>{{ item.nik }}</td>
+                <td>{{ item.id_kk }}</td>
                 <td>{{ item.nama }}</td>
+                <td>{{ item.agama }}</td>
+                <td>{{ item.pendidikan }}</td>
                 <td>{{ item.jenis_kelamin }}</td>
-                <td>{{ item.kepala_keluarga }}</td>
                 <td>
                     <button class="btn btn-danger" type="submit" @click="deleteAnggota(item.id)">Hapus</button>
                 </td>
@@ -25,7 +29,7 @@
         </tbody>
         <tbody v-else>
             <tr>
-                <td colspan="6">
+                <td colspan="6" class="text-center">
                     <h4 class="text-center msg-agt">Data Anggota Keluarga Belum Ditambahkan</h4>
                 </td>
             </tr>
@@ -81,6 +85,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.table {
+    margin-left: 10px;
+}
 </style>

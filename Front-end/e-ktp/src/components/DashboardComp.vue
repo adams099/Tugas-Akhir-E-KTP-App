@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- TABLE START -->
+    <h5 class="mt-5 mb-2">Daftar Kartu Kelurga</h5>
     <table class="table mt-3 table table-striped shadow" v-show="!success">
       <thead>
         <tr>
@@ -147,6 +148,10 @@ h2 {
 
 table {
   border: 1px solid #f2f2f2;
-  margin-left: 20px;
+  margin-left: 10px;
+}
+
+h5 {
+  margin-left: 10px;
 }
 </style>
