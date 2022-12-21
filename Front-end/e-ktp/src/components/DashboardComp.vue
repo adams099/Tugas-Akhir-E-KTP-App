@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-show="!success">
+    <div>
       <h5 class="mt-5 mb-2">Daftar Kartu Kelurga</h5>
 
       <!-- TABLE START -->
@@ -45,15 +45,15 @@
     </div>
     <!-- TABLE END -->
 
-    <div v-show="success">
+    <!-- <div v-show="success">
       <Success :propsAlert="textAlert"></Success>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import kartuKeluargaServices from "@/services/kkServices";
-import Success from "./Success.vue";
+// import Success from "./Success.vue";
 
 export default {
   name: "DashboardS",
@@ -62,13 +62,13 @@ export default {
     return {
       kartuKeluargaData: [],
       anggotaKeluargaData: [],
-      success: false,
+      // success: false,
       textAlert: '',
     };
   },
 
   components: {
-    Success,
+    // Success,
   },
 
   methods: {
@@ -85,22 +85,40 @@ export default {
         });
     },
 
-    // METHOD DELETE KK
+    // METHOD DELETE KK Sweetalert
     deleteKK(id) {
-      if (confirm(`Yakin Ingin menghapus data ini ?`)) {
-        kartuKeluargaServices
+        this.$swal({
+        title: 'Delete',
+        text: 'Apakah anda Yakin Menghapus data kartu Keluarga',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: "Yes Delete it!",
+        cancelButtonText: "No, keep it!",
+        showLoaderConfirm: true,
+
+      }).then((result) => {
+        if (result.value) {
+          this.$swal(
+            "Delete",
+            "Berhasil Menghapus data Kartu Keluarga!"
+
+          ).then(function (){
+            window.location.reload();
+          });
+          kartuKeluargaServices
           .deleteKartuKeluarga(id)
           .then((response) => {
             console.log(response.data);
-            this.textAlert = 'Dihapus';
-            this.success = true;
           })
           .catch((e) => {
             console.log(e);
           });
-      } else {
-        alert("Hapus Dibatalkan");
-      }
+
+        }else {
+          this.$swal("Batal", "Hapus Dibatalkan!");
+        }
+
+      })
     },
   },
   

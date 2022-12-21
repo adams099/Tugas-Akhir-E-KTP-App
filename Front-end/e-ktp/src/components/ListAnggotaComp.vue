@@ -6,6 +6,7 @@
                 <th scope="col" class="text-center">No</th>
                 <th scope="col">Nomor KK</th>
                 <th scope="col">NIK</th>
+                <th scope="col">Kepala Keluarga</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Agama</th>
                 <th scope="col">Pendidikan</th>
@@ -18,11 +19,12 @@
                 <th scope="row"  class="text-center">{{ index + 1 }}</th>
                 <td>{{ item.nik }}</td>
                 <td>{{ item.id_kk }}</td>
+                <td>{{ item.kepala_keluarga }}</td>
                 <td>{{ item.nama }}</td>
                 <td>{{ item.agama }}</td>
                 <td>{{ item.pendidikan }}</td>
                 <td>{{ item.jenis_kelamin }}</td>
-                <td>
+                <td class="text-center">
                     <button class="btn btn-danger" type="submit" @click="deleteAnggota(item.id)">Hapus</button>
                 </td>
             </tr>
@@ -64,18 +66,38 @@ export default {
         },
 
         deleteAnggota(id) {
-            if (confirm(`Yakin Ingin menghapus data ini ?`)) {
-                anggotaKeluargaServices.deleteAnggotaKeluarga(id)
-                    .then((response) => {
-                        console.log(response.data);
-                        location.reload();
-                    })
-                    .catch((e) => {
-                        console.log(e);
+            this.$swal({
+                title: 'Delete',
+                text: 'Apakah anda Yakin Menghapus data Anggota Keluarga',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: "Yes Delete it!",
+                cancelButtonText: "No, keep it!",
+                showLoaderConfirm: true,
+
+            }).then((result) => {
+                if (result.value) {
+                    this.$swal(
+                        "Delete",
+                        "Berhasil Menghapus data Anggota Keluarga!"
+
+                    ).then(function () {
+                        window.location.reload();
                     });
-            } else {
-                alert("Hapus Dibatalkan");
-            }
+                    anggotaKeluargaServices
+                        .deleteAnggotaKeluarga(id)
+                        .then((response) => {
+                            console.log(response.data);
+                        })
+                        .catch((e) => {
+                            console.log(e);
+                        });
+
+                } else {
+                    this.$swal("Batal", "Hapus Dibatalkan!");
+                }
+
+            })
         },
     },
 

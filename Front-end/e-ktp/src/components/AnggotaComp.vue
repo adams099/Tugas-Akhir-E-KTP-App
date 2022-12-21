@@ -55,7 +55,8 @@
                         <form ref="form" @submit.prevent="handleOk">
                             <!-- NIK -->
                             <b-form-group class="mt-2" label="NIK" label-for="nik" invalid-feedback="NIK is required">
-                                <b-form-input class="input-field" type="number" id="nik" v-model="anggotaData.nik" required></b-form-input>
+                                <b-form-input class="input-field" type="number" id="nik" v-model="anggotaData.nik"
+                                    required></b-form-input>
                             </b-form-group>
 
                             <!-- NAMA -->
@@ -133,7 +134,7 @@ export default {
     components: {
         Success
     },
-    
+
     data() {
         return {
             anggotaKeluargaData: [],
@@ -204,18 +205,50 @@ export default {
         },
 
         deleteAnggota(id) {
-            if (confirm(`Yakin Ingin menghapus data ini ?`)) {
-                anggotaKeluargaServices.deleteAnggotaKeluarga(id)
-                    .then((response) => {
-                        console.log(response.data);
-                        location.reload();
-                    })
-                    .catch((e) => {
-                        console.log(e);
+            this.$swal({
+                title: 'Delete',
+                text: 'Apakah anda Yakin Menghapus data Anggota Keluarga',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: "Yes Delete it!",
+                cancelButtonText: "No, keep it!",
+                showLoaderConfirm: true,
+
+            }).then((result) => {
+                if (result.value) {
+                    this.$swal(
+                        "Delete",
+                        "Berhasil Menghapus data Anggota Keluarga!"
+
+                    ).then(function () {
+                        window.location.reload();
                     });
-            } else {
-                alert("Hapus Dibatalkan");
-            }
+                    anggotaKeluargaServices
+                        .deleteAnggotaKeluarga(id)
+                        .then((response) => {
+                            console.log(response.data);
+                        })
+                        .catch((e) => {
+                            console.log(e);
+                        });
+
+                } else {
+                    this.$swal("Batal", "Hapus Dibatalkan!");
+                }
+            })
+            
+            // if (confirm(`Yakin Ingin menghapus data ini ?`)) {
+            //     anggotaKeluargaServices.deleteAnggotaKeluarga(id)
+            //         .then((response) => {
+            //             console.log(response.data);
+            //             location.reload();
+            //         })
+            //         .catch((e) => {
+            //             console.log(e);
+            //         });
+            // } else {
+            //     alert("Hapus Dibatalkan");
+            // }
         },
 
         isiForm(id) {
