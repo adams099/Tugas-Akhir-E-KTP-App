@@ -12,22 +12,24 @@
             <table class="table mt-3 table table-striped shadow">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
+                        <th scope="col" class="text-center">No</th>
                         <th scope="col">NIK</th>
                         <th scope="col">Nama</th>
+                        <th scope="col">Agama</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Kepala Keluarga</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody v-if="anggotaKeluargaData.length > 0">
                     <tr v-for="(item, index) in anggotaKeluargaData" :key="index">
-                        <th scope="row">{{ index + 1 }}</th>
+                        <th scope="row" class="text-center">{{ index + 1 }}</th>
                         <td>{{ item.nik }}</td>
                         <td>{{ item.nama }}</td>
+                        <td>{{ item.agama }}</td>
                         <td>{{ item.jenis_kelamin }}</td>
                         <td>{{ item.kepala_keluarga }}</td>
-                        <td>
+                        <td class="text-center">
                             <router-link :to="`/detailKK/${item.id}/listAnggota/detailAnggota`">
                                 <button class="btn btn-tambah">Detail</button>
                             </router-link>
@@ -37,7 +39,7 @@
                 </tbody>
                 <tbody v-else>
                     <tr>
-                        <td colspan="6">
+                        <td colspan="7">
                             <h4 class="text-center msg-agt">Data Anggota Keluarga Belum Ditambahkan</h4>
                         </td>
                     </tr>
@@ -92,20 +94,26 @@
                                     required></b-form-input>
                             </b-form-group>
 
-                            <!-- AGAMA -->
-                            <b-form-group class="mt-2" label="Agama" label-for="agama"
-                                invalid-feedback="Agama Lahir is required">
-                                <b-form-input id="agama" v-model="anggotaData.agama" required></b-form-input>
-                            </b-form-group>
-
                             <!-- PENDIDIKAN -->
                             <b-form-group class="mt-2" label="Pendidikan" label-for="pendidikan"
                                 invalid-feedback="Pendidikan Lahir is required">
                                 <b-form-input id="pendidikan" v-model="anggotaData.pendidikan" required></b-form-input>
                             </b-form-group>
 
+                            <!-- AGAMA -->
+                            <b-form-group id="input-group-3" label="Agama" label-for="input-3" class="mt-2">
+                                <b-form-select class="gender" style="width: 220px;" v-model="anggotaData.agama">
+                                    <option>Islam</option>
+                                    <option>Kristen</option>
+                                    <option>Katolik</option>
+                                    <option>Hindu</option>
+                                    <option>Budha</option>
+                                    <option>Konghucu</option>
+                                </b-form-select>
+                            </b-form-group>
+
                             <!-- KEPALA KELUARGA     -->
-                            <b-form-group id="input-group-3" label="Kelapa Keluarga:" label-for="input-3" class="mt-2">
+                            <b-form-group id="input-group-3" label="Kelapa Keluarga" label-for="input-3" class="mt-2">
                                 <b-form-select class="gender" style="width: 220px;"
                                     v-model="anggotaData.kepala_keluarga">
                                     <option>Yes</option>
@@ -119,6 +127,7 @@
                 <p v-if="validasiKK" class="small text-danger">NIK Sudah Terdaftar</p>
             </b-modal>
             <!-- FORM END -->
+
         </div>
         <div v-show="success">
             <Success :propsAlert="textAlert"></Success>
@@ -236,7 +245,7 @@ export default {
                     this.$swal("Batal", "Hapus Dibatalkan!");
                 }
             })
-            
+
             // if (confirm(`Yakin Ingin menghapus data ini ?`)) {
             //     anggotaKeluargaServices.deleteAnggotaKeluarga(id)
             //         .then((response) => {
@@ -299,6 +308,5 @@ export default {
 .gender {
     padding-top: 10px;
     padding-right: 20px;
-
 }
 </style>

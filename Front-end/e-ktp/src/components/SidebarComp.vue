@@ -176,7 +176,6 @@ svg {
   cursor: pointer;
 }
 
-
 h4 .text-white mt-auto mb-3:hover {
   background-color: #5F9DF7;
   padding: 5px 5px 5px 5px;

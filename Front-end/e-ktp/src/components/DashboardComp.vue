@@ -7,27 +7,27 @@
       <table class="table mt-3 table table-striped shadow">
         <thead>
           <tr>
-            <th scope="col">No</th>
+            <th scope="col" class="text-center">No</th>
             <th scope="col">Nomor KK</th>
             <th scope="col">Alamat</th>
             <th scope="col">Kota</th>
             <th scope="col">Kode Pos</th>
-            <th scope="col">Action</th>
+            <th scope="col" class="text-center">Action</th>
           </tr>
         </thead>
         <tbody v-if="kartuKeluargaData.length > 0">
           <tr v-for="(item, index) in kartuKeluargaData" :key="index">
-            <th scope="row">{{ index + 1 }}</th>
+            <th scope="row" class="text-center">{{ index + 1 }}</th>
             <td>{{ item.nomor_kk }}</td>
             <td>{{ item.alamat }}</td>
             <td>{{ item.kabupaten_kota }}</td>
             <td>{{ item.kode_pos }}</td>
-            <td>
+            <td class="text-center">
               <!-- BUTTON -->
               <router-link :to="{ path: '/detailKK/' + item.nomor_kk }">
                 <button class="btn btn-success" type="submit">Detail</button>
               </router-link>
-  
+
               <button class="btn btn-danger" type="submit" @click="deleteKK(item.id)">
                 Hapus
               </button>
@@ -45,15 +45,11 @@
     </div>
     <!-- TABLE END -->
 
-    <!-- <div v-show="success">
-      <Success :propsAlert="textAlert"></Success>
-    </div> -->
   </div>
 </template>
 
 <script>
 import kartuKeluargaServices from "@/services/kkServices";
-// import Success from "./Success.vue";
 
 export default {
   name: "DashboardS",
@@ -62,13 +58,8 @@ export default {
     return {
       kartuKeluargaData: [],
       anggotaKeluargaData: [],
-      // success: false,
       textAlert: '',
     };
-  },
-
-  components: {
-    // Success,
   },
 
   methods: {
@@ -87,7 +78,7 @@ export default {
 
     // METHOD DELETE KK Sweetalert
     deleteKK(id) {
-        this.$swal({
+      this.$swal({
         title: 'Delete',
         text: 'Apakah anda Yakin Menghapus data kartu Keluarga',
         icon: 'warning',
@@ -102,26 +93,26 @@ export default {
             "Delete",
             "Berhasil Menghapus data Kartu Keluarga!"
 
-          ).then(function (){
+          ).then(function () {
             window.location.reload();
           });
           kartuKeluargaServices
-          .deleteKartuKeluarga(id)
-          .then((response) => {
-            console.log(response.data);
-          })
-          .catch((e) => {
-            console.log(e);
-          });
+            .deleteKartuKeluarga(id)
+            .then((response) => {
+              console.log(response.data);
+            })
+            .catch((e) => {
+              console.log(e);
+            });
 
-        }else {
+        } else {
           this.$swal("Batal", "Hapus Dibatalkan!");
         }
 
       })
     },
   },
-  
+
   mounted() {
     this.getKK();
   },

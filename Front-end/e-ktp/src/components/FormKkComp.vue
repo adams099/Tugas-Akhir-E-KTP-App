@@ -82,7 +82,8 @@
                         <div class="col-auto d-flex justify-content-between my-3">
                             <label for="kode_pos" class="col-form-label">Kode Pos</label>
                             <input :disabled="isReadOnly" v-model="kartuKeluargaData.kode_pos" placeholder="Kode Pos"
-                                style="width: 50%" type="number" id="kode_pos" class="form-control input-field" required />
+                                style="width: 50%" type="number" id="kode_pos" class="form-control input-field"
+                                required />
                         </div>
                     </div>
                 </div>
@@ -130,6 +131,7 @@ export default {
                 rt: null,
                 rw: null,
             },
+
             Butns: this.$route.path,
             buttonValue: "Submit",
             success: false,
@@ -205,11 +207,12 @@ export default {
                 });
         },
     },
-    
+
     mounted() {
         if (this.$route.params.no_kk > 0) {
             this.getKartuKelurgaByNokk();
             this.btnDetail = 'Lihat Anggota'
+
         } else if (this.btnDetail == 'Tambah') {
             this.isReadOnly = false;
             this.kkNo = false;

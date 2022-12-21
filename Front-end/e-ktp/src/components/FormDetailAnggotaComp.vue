@@ -13,25 +13,30 @@
       <!-- Start Form Detail Anggota -->
       <form action="" class="mt-3 p-4 shadow" @submit.prevent="updateAnggotaFunc">
         <div class="d-flex">
+          <!-- INPUT KIRI -->
           <div class="col-md-6 p-3">
+            <!-- NIK -->
             <div class="col-auto d-flex justify-content-between my-3">
               <label for="nik" class="col-form-label">NIK</label>
               <input disabled v-model="anggotaData.nik" placeholder="Nomor Induk Keluarga" style="width: 50%"
                 type="number" id="nik" class="form-control input-field" required />
             </div>
 
+            <!-- NAMA -->
             <div class="col-auto d-flex justify-content-between my-3">
               <label for="nama" class="col-form-label">Nama</label>
               <input :disabled="isReadOnly" v-model="anggotaData.nama" placeholder="Nama" style="width: 50%" type="text"
                 id="nama" class="form-control" required />
             </div>
 
+            <!-- TEMPAT LAHIR -->
             <div class="col-auto d-flex justify-content-between my-3">
               <label for="tempat_lahir" class="col-form-label">Tempat Lahir</label>
               <input :disabled="isReadOnly" v-model="anggotaData.tempat_lahir" placeholder="Tempat Lahir"
                 style="width: 50%" type="text" id="tempat_lahir" class="form-control" required />
             </div>
 
+            <!-- JENIS KELAMIN -->
             <div class="d-flex justify-content-between">
               <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin</label>
               <select :disabled="isReadOnly" class="form-control jenis_kelamin" id="jenis_kelamin"
@@ -42,25 +47,36 @@
             </div>
           </div>
 
+          <!--INPUT KANAN  -->
           <div class="col-md-6 p-3 mt-2">
+            <!-- TANGGAL LAHIR -->
             <div class="col-auto d-flex justify-content-between">
               <label for="desa_kelurahan" class="col-form-label">Tanggal Lahir</label>
               <input :disabled="isReadOnly" v-model="anggotaData.tanggal_lahir" placeholder="Desa / Kelurahan"
                 style="width: 50%" type="date" id="desa_kelurahan" class="form-control" required />
             </div>
 
+            <!-- AGAMA -->
             <div class="col-auto d-flex justify-content-between my-3">
               <label for="agama" class="col-form-label">Agama</label>
-              <input :disabled="isReadOnly" v-model="anggotaData.agama" placeholder="Agama" style="width: 50%"
-                type="text" id="agama" class="form-control" required />
+              <select :disabled="isReadOnly" class="form-control agama" id="jenis_kelamin" v-model="anggotaData.agama">
+                <option>Islam</option>
+                <option>Kristen</option>
+                <option>Katolik</option>
+                <option>Hindu</option>
+                <option>Budha</option>
+                <option>Konghucu</option>
+              </select>
             </div>
 
+            <!-- PENDIDIKAN -->
             <div class="col-auto d-flex justify-content-between my-3">
               <label for="pendidikan" class="col-form-label">Pendidikan</label>
               <input :disabled="isReadOnly" v-model="anggotaData.pendidikan" placeholder="pendidikan" style="width: 50%"
                 type="text" id="pendidikan" class="form-control" required />
             </div>
 
+            <!-- KEPALA KELUARGA -->
             <div class="d-flex justify-content-between">
               <label for="kepala_keluarga" class="col-form-label">Kepala Keluarga</label>
               <select :disabled="isReadOnly" class="form-control kepala_keluarga" id="kepala_keluarga"
@@ -71,6 +87,7 @@
             </div>
           </div>
         </div>
+
         <!-- Button -->
         <button class="button-update" type="submit" v-show="btnUpdate">
           Update
@@ -164,14 +181,13 @@ export default {
 </script>
 
 <style scoped>
-
 form {
   border-radius: 25px;
 }
 
 .btn-primary {
-    background-color: #25AAE1;
-    border: none;
+  background-color: #25AAE1;
+  border: none;
 }
 
 .button-update {
@@ -183,6 +199,7 @@ form {
 }
 
 .jenis_kelamin,
+.agama,
 .kepala_keluarga {
   width: 257px;
   height: 38px;
