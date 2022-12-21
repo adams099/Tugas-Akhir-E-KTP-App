@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="form-add" v-show="!success">
+        <div v-show="!success">
+            <!-- BUTTON -->
             <router-link :to="{ path: '/detailKK/' + this.$route.params.no_kk }">
                 <button class="btn btn-successs mt-3 shadow">Back</button>
             </router-link>
@@ -30,10 +31,6 @@
                             <router-link :to="`/detailKK/${item.id}/listAnggota/detailAnggota`">
                                 <button class="btn btn-tambah">Detail</button>
                             </router-link>
-                            <!-- <router-link to="">
-                                <button class="btn btn-tambah" @click="isiForm(item.id)">Detail</button>
-                            </router-link> -->
-
                             <button class="btn btn-danger" type="submit" @click="deleteAnggota(item.id)">Hapus</button>
                         </td>
                     </tr>
@@ -52,12 +49,13 @@
             <b-modal id="modal-prevent-closing" ref="modal" title="Silahkan Tambahkan Anggota" ok-title="Submit"
                 cancel-title="Tutup" @ok="handleOk" @submit="getIdKK" required>
                 <div class="row">
+
                     <!-- INPUT KIRI -->
                     <div class="col input-kiri">
                         <form ref="form" @submit.prevent="handleOk">
                             <!-- NIK -->
                             <b-form-group class="mt-2" label="NIK" label-for="nik" invalid-feedback="NIK is required">
-                                <b-form-input type="number" id="nik" v-model="anggotaData.nik" required></b-form-input>
+                                <b-form-input class="input-field" type="number" id="nik" v-model="anggotaData.nik" required></b-form-input>
                             </b-form-group>
 
                             <!-- NAMA -->
@@ -135,6 +133,7 @@ export default {
     components: {
         Success
     },
+    
     data() {
         return {
             anggotaKeluargaData: [],
@@ -155,12 +154,12 @@ export default {
             }
         };
     },
+
     methods: {
         handleOk() {
             this.getIdKK();
             let data = this.anggotaData;
             let id = this.anggotaData.id;
-            // let id = this.$route.params.id;
             let route = this.$route.fullPath;
             if (route === `/updateAnggota`) {
                 anggotaKeluargaServices.updateKartuKeluarga(id, data)
@@ -187,6 +186,7 @@ export default {
                     });
             }
         },
+
         getAllAnggotaKeluargaByIdKK() {
             let id_kk = this.$route.params.no_kk;
             anggotaKeluargaServices.getAllAnggotaKeluargaByIdKK(id_kk)
@@ -198,9 +198,11 @@ export default {
                     console.log(e);
                 });
         },
+
         getIdKK() {
             this.anggotaData.id_kk = this.$route.params.no_kk
         },
+
         deleteAnggota(id) {
             if (confirm(`Yakin Ingin menghapus data ini ?`)) {
                 anggotaKeluargaServices.deleteAnggotaKeluarga(id)
@@ -215,6 +217,7 @@ export default {
                 alert("Hapus Dibatalkan");
             }
         },
+
         isiForm(id) {
             anggotaKeluargaServices.getAnggotaKeluargaById(id)
                 .then(response => {
@@ -224,6 +227,7 @@ export default {
                 })
         },
     },
+
     mounted() {
         this.getAllAnggotaKeluargaByIdKK();
     },
@@ -231,10 +235,6 @@ export default {
 </script>
 
 <style scoped>
-.form-add {
-    margin-left: 20px;
-}
-
 .btn-successs {
     margin-right: 10px;
     background-color: #8E94F2;
@@ -242,22 +242,11 @@ export default {
     border: none;
 }
 
-.btn-detail {
-    background-color: #92FAA4;
-    color: aliceblue;
-    margin-right: 10px;
-}
-
 .btn-tambah {
     margin-right: 10px;
     background-color: #92FAA4;
     color: aliceblue;
     border: none;
-}
-
-.btn-add {
-    background-color: #92FAA4;
-    color: aliceblue;
 }
 
 .btn-danger {
@@ -272,10 +261,6 @@ export default {
 
 .input-kanan {
     padding: 10px 10px 10px 10px;
-}
-
-.close {
-    background-color: #92FAA4;
 }
 
 .gender {

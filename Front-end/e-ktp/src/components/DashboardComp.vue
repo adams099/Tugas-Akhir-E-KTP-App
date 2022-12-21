@@ -1,46 +1,50 @@
 <template>
   <div>
-    <!-- TABLE START -->
-    <h5 class="mt-5 mb-2">Daftar Kartu Kelurga</h5>
-    <table class="table mt-3 table table-striped shadow" v-show="!success">
-      <thead>
-        <tr>
-          <th scope="col">No</th>
-          <th scope="col">Nomor KK</th>
-          <th scope="col">Alamat</th>
-          <th scope="col">Kota</th>
-          <th scope="col">Kode Pos</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody v-if="kartuKeluargaData.length > 0">
-        <tr v-for="(item, index) in kartuKeluargaData" :key="index">
-          <th scope="row">{{ index + 1 }}</th>
-          <td>{{ item.nomor_kk }}</td>
-          <td>{{ item.alamat }}</td>
-          <td>{{ item.kabupaten_kota }}</td>
-          <td>{{ item.kode_pos }}</td>
-          <td>
-            <!-- BUTTON -->
-            <router-link :to="{ path: '/detailKK/' + item.nomor_kk }">
-              <button class="btn btn-success" type="submit">Detail</button>
-            </router-link>
+    <div v-show="!success">
+      <h5 class="mt-5 mb-2">Daftar Kartu Kelurga</h5>
 
-            <button class="btn btn-danger" type="submit" @click="deleteKK(item.id)">
-              Hapus
-            </button>
-          </td>
-        </tr>
-      </tbody>
-      <tbody v-else>
-        <tr class="msg-tr text-center">
-          <td colspan="6" class="msg-null">
-            <h3>Saat ini Tidak Ada Data Kartu Keluarga !</h3>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <!-- TABLE START -->
+      <table class="table mt-3 table table-striped shadow">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nomor KK</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Kota</th>
+            <th scope="col">Kode Pos</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody v-if="kartuKeluargaData.length > 0">
+          <tr v-for="(item, index) in kartuKeluargaData" :key="index">
+            <th scope="row">{{ index + 1 }}</th>
+            <td>{{ item.nomor_kk }}</td>
+            <td>{{ item.alamat }}</td>
+            <td>{{ item.kabupaten_kota }}</td>
+            <td>{{ item.kode_pos }}</td>
+            <td>
+              <!-- BUTTON -->
+              <router-link :to="{ path: '/detailKK/' + item.nomor_kk }">
+                <button class="btn btn-success" type="submit">Detail</button>
+              </router-link>
+  
+              <button class="btn btn-danger" type="submit" @click="deleteKK(item.id)">
+                Hapus
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <tbody v-else>
+          <tr class="msg-tr text-center">
+            <td colspan="6" class="msg-null">
+              <h3>Saat ini Tidak Ada Data Kartu Keluarga !</h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <!-- TABLE END -->
+
     <div v-show="success">
       <Success :propsAlert="textAlert"></Success>
     </div>
@@ -53,6 +57,7 @@ import Success from "./Success.vue";
 
 export default {
   name: "DashboardS",
+
   data() {
     return {
       kartuKeluargaData: [],
@@ -61,9 +66,11 @@ export default {
       textAlert: '',
     };
   },
+
   components: {
-    Success
+    Success,
   },
+
   methods: {
     // METHOD GET ALL DATA KK
     getKK() {
@@ -96,6 +103,7 @@ export default {
       }
     },
   },
+  
   mounted() {
     this.getKK();
   },
@@ -125,33 +133,15 @@ h2 {
   padding: 5px 13px;
   margin-right: 10px;
   border: none;
-  background-color: #ef7a85;
-}
-
-.card-1 {
-  background-color: aquamarine;
-  margin-right: 50px;
-  width: 200px;
-  height: 100px;
-  padding: 10px 10px;
-  color: rgb(130, 130, 130);
-  border-radius: 20;
-}
-
-.card-2 {
-  background-color: rgb(255, 189, 46);
-  width: 200px;
-  height: 100px;
-  padding: 10px 10px;
-  color: aliceblue;
+  background-color: #EF7A85;
 }
 
 table {
   border: 1px solid #f2f2f2;
-  margin-left: 10px;
 }
 
 h5 {
-  margin-left: 10px;
+  border-left: 5px solid #7955CA;
+  padding-left: 3px;
 }
 </style>

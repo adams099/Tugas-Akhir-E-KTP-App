@@ -4,8 +4,8 @@
             <Sidebar></Sidebar>
         </div>
         <div class="col col-md-9 ml-5">
-            <Breadcump></Breadcump>
-            <ListAnggotaComVue></ListAnggotaComVue>
+            <Title></Title>
+            <ListAnggota></ListAnggota>
         </div>
         <div class="col col-md-3"></div>
         <div class="col col-md-9">
@@ -17,26 +17,20 @@
 <script>
 import Sidebar from "../components/SidebarComp.vue";
 import Footer from "../components/FooterComp.vue";
-import ListAnggotaComVue from "@/components/ListAnggotaCom.vue";
-import Breadcump from "@/components/Breadcump.vue";
+import ListAnggota from "@/components/ListAnggotaComp.vue";
+import Title from "@/components/TitleComp.vue";
 
 export default {
-    name: "FormS",
+    name: "DaftarAnggota",
     components: {
         Sidebar,
         Footer,
-        ListAnggotaComVue,
-        Breadcump
+        ListAnggota,
+        Title
     }
 };
 </script>
 
 <style scoped>
-.title {
-    padding: 10px 10px;
-    border-radius: 15px;
-    background-color: #c8b6ff;
-    margin-left: 20px;
-    color: aliceblue;
-}
+
 </style>

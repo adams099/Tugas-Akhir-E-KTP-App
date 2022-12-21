@@ -3,7 +3,7 @@
     <table class="table mt-3 table table-striped shadow">
         <thead>
             <tr>
-                <th scope="col">No</th>
+                <th scope="col" class="text-center">No</th>
                 <th scope="col">Nomor KK</th>
                 <th scope="col">NIK</th>
                 <th scope="col">Nama</th>
@@ -15,7 +15,7 @@
         </thead>
         <tbody v-if="anggotaData.length > 0">
             <tr v-for="(item, index) in anggotaData" :key="index">
-                <th scope="row">{{ index + 1 }}</th>
+                <th scope="row"  class="text-center">{{ index + 1 }}</th>
                 <td>{{ item.nik }}</td>
                 <td>{{ item.id_kk }}</td>
                 <td>{{ item.nama }}</td>
@@ -29,8 +29,8 @@
         </tbody>
         <tbody v-else>
             <tr>
-                <td colspan="6" class="text-center">
-                    <h4 class="text-center msg-agt">Data Anggota Keluarga Belum Ditambahkan</h4>
+                <td colspan="8" class="text-center">
+                    <h4 class="text-center msg-agt">Data Anggota Keluarga Tidak Ada</h4>
                 </td>
             </tr>
         </tbody>
@@ -42,7 +42,7 @@
 import anggotaKeluargaServices from '../services/anggotaKeluargaServices'
 
 export default {
-    name: 'ListAnggotaCom',
+    name: 'ListAnggotaComp',
 
     data() {
         return {
@@ -86,7 +86,5 @@ export default {
 </script>
 
 <style scoped>
-.table {
-    margin-left: 10px;
-}
+
 </style>

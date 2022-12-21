@@ -10,5 +10,9 @@ export default {
 }
 </script>
 
-<script>
-</script>
+<style>
+.input-field::-webkit-inner-spin-button,
+.input-field::-webkit-outer-spin-button {
+  display: none;
+}
+</style>

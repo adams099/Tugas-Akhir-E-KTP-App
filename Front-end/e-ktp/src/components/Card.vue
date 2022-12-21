@@ -23,6 +23,7 @@ export default {
         return {
             kartuKeluargaData: [],
             anggotaKeluargaData: [],
+            propsSuccess: true,
         };
     },
 
@@ -66,7 +67,6 @@ export default {
     flex-direction: row;
     margin-top: 25px;
     justify-content: flex-start;
-    margin-left: 10px;
 }
 
 .jkk {
@@ -82,15 +82,6 @@ export default {
 
 .jsw {
     background: linear-gradient(-135deg, #FF9671, #D65DB1);
-    color: aliceblue;
-    width: 270px;
-    height: 150px;
-    padding: 20px 20px;
-    border-radius: 20px;
-}
-
-.jsa {
-    background-color: rgb(65, 67, 111);
     color: aliceblue;
     width: 270px;
     height: 150px;

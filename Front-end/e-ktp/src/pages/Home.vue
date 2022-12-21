@@ -4,7 +4,7 @@
       <Sidebar></Sidebar>
     </div>
     <div class="col col-md-9 dashboard">
-      <breadCump></breadCump>
+      <Title></Title>
       <Card></Card>
       <Dashboard></Dashboard>
     </div>
@@ -19,16 +19,28 @@
 import Sidebar from "../components/SidebarComp.vue";
 import Dashboard from "../components/DashboardComp.vue";
 import Footer from "../components/FooterComp.vue";
-import breadCump from "../components/Breadcump.vue";
+import Title from "../components/TitleComp.vue";
 import Card from "../components/Card.vue";
 
 export default {
   name: "DashboardS",
+  data(){
+    return{
+      emitSuccess: true,
+    }
+  },
+
+  methods: {
+    successCard(){
+      this.emitSuccess = false;
+    }
+  },
+
   components: {
     Sidebar,
     Dashboard,
     Footer,
-    breadCump,
+    Title,
     Card,
   },
 };

@@ -1,9 +1,7 @@
-// import Login from "./pages/Login.vue"
-// import Register from './pages/Register.vue'
 import LoginReg from './pages/LoginRegis.vue'
 import Home from './pages/Home.vue'
-import Form from './pages/FormAddKK.vue'
-import Anggota from './pages/FormAnggota.vue'
+import FormKk from './pages/FormAddKK.vue'
+import Anggota from './pages/ListSeluruhAK.vue'
 import DetailKK from './pages/DetailKK.vue'
 import ListAnggota from './pages/ListAnggota.vue'
 import FormDetailAk from './pages/DetailAkForm.vue'
@@ -13,21 +11,13 @@ export default [
         path: '/',
         component: LoginReg
     },
-    // {
-    //     path: '/login',
-    //     component: Login
-    // },
-    // {
-    //     path: '/register',
-    //     component: Register
-    // },
     {
         path: '/home',
         component: Home
     },
     {
         path: `/addkk`,
-        component: Form
+        component: FormKk
     },
     {
         path: `/anggota`,
@@ -35,15 +25,18 @@ export default [
     },
 
     {
+        name: "DetailKK",
         path: `/detailKK/:no_kk`,
         component: DetailKK
     },
     {
+        name: "ListAnggota",
         path: `/detailKK/:no_kk/listAnggota`,
         component: ListAnggota
     },
     {
+        name: "FormDetailAk",
         path: `/detailKK/:id/listAnggota/detailAnggota`,
-        component: FormDetailAk
+        component: FormDetailAk,
     }
 ]

@@ -47,17 +47,21 @@
 <script>
 import eKtpKKService from "@/services/userServices";
 export default {
+    name: 'loginRegisComp',
+
     data() {
         return {
             userLogin: {
                 email: "",
                 password: "",
             },
+
             userRegister: {
                 nama: "",
                 email: "",
                 password: "",
             },
+
             loginValid: false,
             password2: "",
             registerValid: false,
@@ -66,6 +70,7 @@ export default {
             checkbox: "",
         };
     },
+
     methods: {
         login() {
             console.log(this.userLogin);
@@ -82,6 +87,7 @@ export default {
                     }
                 });
         },
+
         register() {
             this.registerValid = false;
             this.emailValid = false;

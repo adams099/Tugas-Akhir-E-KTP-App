@@ -1,5 +1,5 @@
 <template>
-    <div class="form-add">
+    <div>
         <div v-show="!success">
             <!-- Button -->
             <router-link to="/home" v-show="!success">
@@ -25,7 +25,7 @@
                             <label for="nomorkk" class="col-form-label">Nomor Kartu Keluarga</label>
                             <input :disabled="kkNo" v-model="kartuKeluargaData.nomor_kk"
                                 placeholder="Nomor Kartu Keluarga" style="width: 50%" type="number" id="nomorkk"
-                                class="form-control" required />
+                                class="form-control input-field" required />
                         </div>
 
                         <!-- Alamat -->
@@ -39,14 +39,14 @@
                         <div class="col-auto d-flex justify-content-between my-3">
                             <label for="rt" class="col-form-label">RT</label>
                             <input :disabled="isReadOnly" v-model="kartuKeluargaData.rt" placeholder="RT"
-                                style="width: 50%" type="number" id="rt" class="form-control" required />
+                                style="width: 50%" type="number" id="rt" class="form-control input-field" required />
                         </div>
 
                         <!-- RW -->
                         <div class="col-auto d-flex justify-content-between my-3">
                             <label for="rW" class="col-form-label">RW</label>
                             <input :disabled="isReadOnly" v-model="kartuKeluargaData.rw" placeholder="RW"
-                                style="width: 50%" type="number" id="rW" class="form-control" required />
+                                style="width: 50%" type="number" id="rW" class="form-control input-field" required />
                         </div>
                     </div>
                     <div class="col-md-6 p-3">
@@ -82,11 +82,12 @@
                         <div class="col-auto d-flex justify-content-between my-3">
                             <label for="kode_pos" class="col-form-label">Kode Pos</label>
                             <input :disabled="isReadOnly" v-model="kartuKeluargaData.kode_pos" placeholder="Kode Pos"
-                                style="width: 50%" type="number" id="kode_pos" class="form-control" required />
+                                style="width: 50%" type="number" id="kode_pos" class="form-control input-field" required />
                         </div>
                     </div>
                 </div>
-                <!-- Button -->
+
+                <!-- Start Button -->
                 <p v-if="validasiKK" class="small text-danger">Nomor KK Sudah Terdaftar</p>
                 <button class="button-submit" type="submit" v-show="Butns == '/addkk'">
                     {{ buttonValue }}
@@ -94,6 +95,7 @@
                 <button class="button-submit" type="submit" v-show="updateBtn">
                     {{ buttonValue }}
                 </button>
+                <!-- End Button -->
             </form>
             <!-- END FORM -->
         </div>
@@ -108,11 +110,13 @@
 <script>
 import kartuKeluargaService from "../services/kkServices";
 import Success from "../components/Success.vue";
+
 export default {
     name: "FormS",
     components: {
         Success,
     },
+
     data() {
         return {
             kartuKeluargaData: {
@@ -138,6 +142,7 @@ export default {
             validasiKK: false,
         };
     },
+
     methods: {
         inputKartuKeluarga() {
             let data = this.kartuKeluargaData;
@@ -172,6 +177,7 @@ export default {
                     });
             }
         },
+
         updateFunc() {
             let update = this.isReadOnly;
             if (update == true) {
@@ -182,6 +188,7 @@ export default {
                 this.updateBtn = false;
             }
         },
+
         getKartuKelurgaByNokk() {
             let nomor_kk = this.$route.params.no_kk;
             if (nomor_kk > 0) {
@@ -198,6 +205,7 @@ export default {
                 });
         },
     },
+    
     mounted() {
         if (this.$route.params.no_kk > 0) {
             this.getKartuKelurgaByNokk();
@@ -229,10 +237,6 @@ form {
     border: none;
     border-radius: 7px;
     padding: 7px 10px;
-}
-
-.form-add {
-    margin-left: 20px;
 }
 
 .btn-primary {

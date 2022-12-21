@@ -6,24 +6,24 @@
                 <p class="card-text">Data Berhasil {{ propsAlert }} !</p>
 
                 <router-link to="/home" v-if="propsAlert === 'Disubmit'">
-                    <button class="back btn btn-primary mt-3">Back</button>
+                    <button class="btn btn-primary mt-3">Back</button>
                 </router-link>
 
                 <router-link to="/home" v-else-if="propsAlert === 'Diupdate'">
-                    <button class="back btn btn-primary mt-3">Back</button>
+                    <button class="btn btn-primary mt-3">Back</button>
                 </router-link>
 
                 <router-link :to="{ path: '/detailKK/' + this.$route.params.no_kk + '/listAnggota/' }"
                     v-else-if="propsAlert === 'Disubmit '">
-                    <button class="back btn btn-primary mt-3" @click="RefreshFunc">Back</button>
+                    <button class="btn btn-primary mt-3" @click="RefreshFunc">Back</button>
                 </router-link>
 
                 <router-link to="/home" v-else-if="propsAlert === 'Dihapus'">
-                    <button class="back btn btn-primary mt-3" @click="RefreshFunc">Refles</button>
+                    <button class="btn btn-primary mt-3" @click="RefreshFunc">Refresh</button>
                 </router-link>
                 <router-link :to="{ path: '/detailKK/' + this.$route.params.id + '/listAnggota/detailAnggota' }"
                     v-else-if="propsAlert === 'Diupdate '">
-                    <button class="back btn btn-primary mt-3" @click="RefreshFunc">Back</button>
+                    <button class="btn btn-primary mt-3" @click="RefreshFunc">Back</button>
                 </router-link>
             </div>
         </div>
@@ -33,17 +33,20 @@
 <script>
 export default {
     name: "SuccesS",
+
     data() {
         return {
         }
     },
+
     methods: {
         RefreshFunc() {
             location.reload();
         },
     },
+    
     props: [
-        'propsAlert', 'propsAlertt'
+        'propsAlert'
     ],
 }
 </script>

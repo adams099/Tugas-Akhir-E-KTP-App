@@ -22,7 +22,6 @@ p {
   background: linear-gradient(-135deg, #c850c0, #4158d0);
   border-radius: 10px;
   color: aliceblue;
-  margin-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;

@@ -31,7 +31,7 @@ public class AnggotaKeluargaRepository implements IAnggotaKeluargaRepository {
     @Override
     public List<AnggotaKeluarga> getAllAnggotaKeluarga() {
         // TODO Auto-generated method stub
-        String query = "SELECT * FROM tb_anggota_keluarga";
+        String query = "SELECT * FROM tb_anggota_keluarga ORDER BY id_kk ASC";
         return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(AnggotaKeluarga.class));
     }
 

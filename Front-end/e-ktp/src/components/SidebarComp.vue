@@ -7,13 +7,14 @@
             <p class="pt-2">E-KTP</p>
           </h1>
         </div>
+
         <hr />
 
         <div class="menu">
           <router-link to="/home" class="nav-link">
             <div>
               <h6 class="text-white home d-flex">
-                <span>
+                <span id="home">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-ui-checks-grid" viewBox="0 0 16 16">
                     <path
@@ -42,7 +43,6 @@
             </div>
           </router-link>
 
-          <!-- Daftar Anggota -->
           <router-link to="/anggota" class="nav-link">
             <div>
               <h6 class="text-white daftar-anggota d-flex">
@@ -112,12 +112,6 @@ span {
 }
 
 
-/* h1 {
-  margin-left: 20px;
-  margin-top: 30px;
-  padding-top: 5px;
-} */
-
 hr {
   background-color: rgb(255, 255, 255);
   padding: 5px;
@@ -130,7 +124,6 @@ svg {
   width: 50px;
   height: auto;
   margin-right: 10px;
-  margin-left: 10px;
 }
 
 .menu div {
@@ -178,16 +171,11 @@ svg {
 }
 
 .router-link-exact-active {
-  /* background-color: #5F9DF7; */
+  background-color: #5F9DF7;
   border-radius: 10px 0px 0px 10px;
   cursor: pointer;
 }
 
-.router-link-active {
-  /* background-color: #5F9DF7; */
-  border-radius: 10px 0px 0px 10px;
-  cursor: pointer;
-}
 
 h4 .text-white mt-auto mb-3:hover {
   background-color: #5F9DF7;
@@ -202,24 +190,8 @@ div .mt-auto:hover {
 }
 
 /* Material Icon */
-.material-symbols-outlined {
-  font-weight: 100;
-}
-
-#badge {
-  font-size: 60px;
-}
-
 #home {
-  font-size: 40px;
-}
-
-#add-card {
-  font-size: 40px;
-}
-
-#post-id {
-  font-size: 40px;
+  font-size: 15px;
 }
 
 #logout {

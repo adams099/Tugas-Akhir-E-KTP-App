@@ -4,8 +4,8 @@
       <Sidebar></Sidebar>
     </div>
     <div class="col col-md-9 ml-5">
-      <Breadcump></Breadcump>
-      <Form></Form>
+      <Title></Title>
+      <FormKk></FormKk>
     </div>
     <div class="col col-md-3"></div>
     <div class="col col-md-9">
@@ -15,18 +15,18 @@
 </template>
 
 <script>
-import Form from "../components/Form.vue";
+import FormKk from "../components/FormKkComp.vue";
 import Sidebar from "../components/SidebarComp.vue";
 import Footer from "../components/FooterComp.vue"
-import Breadcump from "../components/Breadcump.vue";
+import Title from "../components/TitleComp.vue";
 
 export default {
-  name: "FormS",
+  name: "PageFormAddKk",
   components: {
-    Form,
+    FormKk,
     Sidebar,
     Footer,
-    Breadcump,
+    Title,
   }
 };
 </script>
