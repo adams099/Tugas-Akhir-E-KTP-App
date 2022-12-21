@@ -51,4 +51,10 @@ public class AnggotaKeluargaService implements IAnggotaKeluargaService {
         return anggotaKeluargaRepository.getAllAnggotaKeluargaByIdKK(id_kk);
     }
 
+    @Override
+    public List<AnggotaKeluarga> deleteAnggotaKeluargaByNoKk(int id_kk) {
+        // TODO Auto-generated method stub
+        return anggotaKeluargaRepository.deleteAnggotaKeluargaByNoKk(id_kk);
+    }
+
 }

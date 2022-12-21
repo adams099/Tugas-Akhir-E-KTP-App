@@ -49,4 +49,10 @@ public class KartuKeluargaService implements IKartuKeluargaService {
         // TODO Auto-generated method stub
         return kartuKeluargaRepository.getKartuKeluargaByNokk(nomor_kk);
     }
+
+    @Override
+    public KartuKeluarga deleteKartuKeluargaByNoKk(int nomor_kk) {
+        // TODO Auto-generated method stub
+        return kartuKeluargaRepository.deleteKartuKeluargaByNoKk(nomor_kk);
+    }
 }

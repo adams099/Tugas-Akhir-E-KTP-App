@@ -28,7 +28,7 @@
                 <button class="btn btn-success" type="submit">Detail</button>
               </router-link>
 
-              <button class="btn btn-danger" type="submit" @click="deleteKK(item.id)">
+              <button class="btn btn-danger" type="submit" @click="deleteKK(item.nomor_kk)">
                 Hapus
               </button>
             </td>
@@ -50,6 +50,7 @@
 
 <script>
 import kartuKeluargaServices from "@/services/kkServices";
+import anggotaKeluargaServices from '@/services/anggotaKeluargaServices';
 
 export default {
   name: "DashboardS",
@@ -77,7 +78,9 @@ export default {
     },
 
     // METHOD DELETE KK Sweetalert
-    deleteKK(id) {
+    deleteKK(nomor_kk) {
+      let id_kk = nomor_kk;
+
       this.$swal({
         title: 'Delete',
         text: 'Apakah anda Yakin Menghapus data kartu Keluarga',
@@ -97,9 +100,17 @@ export default {
             window.location.reload();
           });
           kartuKeluargaServices
-            .deleteKartuKeluarga(id)
+            .deleteKartuKeluargaByNoKk(nomor_kk)
             .then((response) => {
               console.log(response.data);
+              anggotaKeluargaServices
+                .deleteAnggotaKeluargaByNoKk(id_kk)
+                .then((response) => {
+                  console.log(response.data);
+                })
+                .catch((e) => {
+                  console.log(e);
+                });
             })
             .catch((e) => {
               console.log(e);

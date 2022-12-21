@@ -16,4 +16,6 @@ public interface IAnggotaKeluargaService {
     public AnggotaKeluarga getAnggotaKeluargaById(int id);
 
     public List<AnggotaKeluarga> getAllAnggotaKeluargaByIdKK(int id_kk);
+
+    public List<AnggotaKeluarga> deleteAnggotaKeluargaByNoKk(int id_kk);
 }

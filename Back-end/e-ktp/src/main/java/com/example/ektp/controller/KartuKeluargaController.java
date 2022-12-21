@@ -52,4 +52,9 @@ public class KartuKeluargaController {
     public KartuKeluarga getKartuKeluargaByNokk(@PathVariable int nomor_kk) {
         return kartuKeluargaService.getKartuKeluargaByNokk(nomor_kk);
     }
+
+    @DeleteMapping("/deleteKK/{nomor_kk}")
+    public KartuKeluarga deleteKartuKeluargaByNoKk(@PathVariable int nomor_kk) {
+        return kartuKeluargaService.deleteKartuKeluargaByNoKk(nomor_kk);
+    }
 }

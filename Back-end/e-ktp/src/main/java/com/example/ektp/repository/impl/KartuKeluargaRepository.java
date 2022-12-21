@@ -75,4 +75,16 @@ public class KartuKeluargaRepository implements IKartuKeluargaRepository {
         return jdbcTemplate.queryForObject(query, new BeanPropertyRowMapper<>(KartuKeluarga.class), nomor_kk);
     }
 
+    @Override
+    public KartuKeluarga deleteKartuKeluargaByNoKk(int nomor_kk) {
+        // TODO Auto-generated method stub
+        String query = "SELECT * FROM tb_kartu_keluarga WHERE nomor_kk = ?";
+        var result = jdbcTemplate.queryForObject(query, new BeanPropertyRowMapper<>(KartuKeluarga.class), nomor_kk);
+
+        query = "DELETE FROM tb_kartu_keluarga WHERE nomor_kk = ?";
+        jdbcTemplate.update(query, nomor_kk);
+
+        return result;
+    }
+
 }

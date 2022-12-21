@@ -17,13 +17,17 @@ class AnggotaKeluarga {
     deleteAnggotaKeluarga(id) {
         return http.delete(`/anggotakeluarga/delete/${id}`);
     }
-
+    
     getAnggotaKeluargaById(id) {
         return http.get(`/anggotakeluarga/getData/${id}`)
     }
-
+    
     getAllAnggotaKeluargaByIdKK(id_kk) {
         return http.get(`/anggotakeluarga/get/${id_kk}`);
+    }
+
+    deleteAnggotaKeluargaByNoKk(id_kk) {
+        return http.delete(`/anggotakeluarga/deleted/${id_kk}`);
     }
 }
 
