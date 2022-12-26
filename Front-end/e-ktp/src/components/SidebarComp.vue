@@ -101,7 +101,7 @@ span {
 }
 
 .sidebar {
-  width: 280px;
+  width: 300px;
   height: 95%;
   background: linear-gradient(-135deg, #c850c0, #4158d0);
   box-shadow: 0 4px 15px 0 rgba(66, 67, 67, 0.436);
